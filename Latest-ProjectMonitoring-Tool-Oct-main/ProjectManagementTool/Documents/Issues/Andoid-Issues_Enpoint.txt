@@ -1,0 +1,95 @@
+1. AddIssues
+---------------------
+Input Parameters
+---------------------------
+projectname
+Issuedescription
+reportinguser
+reportingdate
+issueproposedclosedate --Optional
+remarks --Optional
+issuedocument :{
+         "fileName":"abc",
+         "filebase64":"bhg"
+}can be mutiple files.(zero or more)
+
+2. UpdateIssueStatus
+
+Input Parameters
+---------------------------
+ProjectName
+issueuid
+issuestatus
+issuestatusupdatedate
+Issue_status_update_user_id
+issue_status_document:{
+         "fileName":"abc",
+         "filebase64":"bhg"
+}can be mutiple files.(zero or more)
+remarks -- Optional
+
+
+
+3. GetIssueList
+
+Input Parameters
+---------------------------
+projectname
+workpackage
+
+
+
+4. GetIssueStatus
+
+Input Parameters
+---------------------------
+Issueuid
+
+
+=================================================================JSON Format=========================================================================================
+
+1.http://184.168.122.102:1118/api/Financial/AddIssues
+
+{
+Project Name:"CP-25",
+Issue description:"Test-Nov-6",
+reporting user:"roshani.salunkhe@passavant-ee.com",
+reporting date:"06/11/2022",
+//assigned user:gautam.javarappa@njsei.com
+//assigned date:16/09/2022
+//approving user:sanjayselvaraj@meghaeng.com
+//issue proposed  close date:30/04/2022
+remarks:"test",
+issue document:"file(s)multiple"
+}
+
+Note: Paramters in // are optional, wihout them the endpouint should work
+
+
+
+2.http://184.168.122.102:1118/api/Financial/UpdateIssueStatus
+
+{
+Project Name:"CP-25",
+Issue uid:"b909209a-5e77-4c07-a966-39e7ef7decc4",
+issue status:"Close",
+updating user id:"designdrawingcp25@gmail.com",
+remarks:"done 100%",
+updating date:"28/09/2022",
+issue status document:"can be multiple files"
+}
+
+
+3.http://184.168.122.102:1118/api/Financial/GetIssueList
+
+{
+ProjectName:"CP-25",
+WorkPackageName:"Bytrayanapura (Hebbal Valley Catchment)"
+}
+
+
+4.http://184.168.122.102:1118/api/Financial/GetIssueStatus
+
+{
+IssueUID:"b909209a-5e77-4c07-a966-39e7ef7decc4"
+}
